@@ -8,7 +8,7 @@ function displayConceptos(conceptos) {
     const conceptoLink = document.createElement("div");
     conceptoLink.classList.add("card");
     conceptoLink.textContent = concepto.Concepto;
-    conceptoLink.href = "/alternativa.html"; // Agrega un valor temporal para el atributo href
+    conceptoLink.href = "../pages/alternativa.html"; // Acceder a alternativa.html en la carpeta "pages"
     conceptoLink.onclick = function (event) {
       console.log("Hiciste clic en el enlace de", concepto.Concepto);
     };
@@ -55,5 +55,5 @@ function cargarConceptos(url) {
 }
 
 // Cambiar la URL de ejemplo por la URL de tu archivo Excel
-const excelURL = "Tablas\Conceptos.xlsx";
+const excelURL = "../tablas/Conceptos.xlsx";
 cargarConceptos(excelURL);
