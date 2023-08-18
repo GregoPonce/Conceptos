@@ -6,12 +6,13 @@ let ministerios = [];
 function displayMinisterios(ministerios) {
   ministerioList.innerHTML = ""; // Limpia la lista antes de mostrar los nuevos ministerios
   ministerios.forEach((ministerio) => {
-    const ministerioLink = document.createElement("a");
+    const ministerioLink = document.createElement("button");
     ministerioLink.classList.add("card");
     ministerioLink.textContent = ministerio;
-    ministerioLink.href = `../pages/alternativa.html?ministerio=${encodeURIComponent(ministerio)}`;
     ministerioLink.onclick = function (event) {
-      console.log("Hiciste clic en el enlace de", ministerio);
+      ministerioSeleccionado = ministerio;
+      const excelURL2 = "informacion/Conceptos.xlsx";
+      cargarConceptos(excelURL2, ministerioSeleccionado);
       // Aquí puedes agregar la lógica para mostrar los conceptos del ministerio seleccionado
     };
     ministerioList.appendChild(ministerioLink);
@@ -37,5 +38,5 @@ function loadMinisteriosFromURL(url) {
 }
 
 // Cambiar la URL de ejemplo por la URL de tu archivo Excel
-const excelURL = "../informacion/Ministerios.xlsx";
+const excelURL = "informacion/Ministerios.xlsx";
 loadMinisteriosFromURL(excelURL);

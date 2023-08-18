@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles\stylesheet.css" />
-    <title>Conceptos de Pagos</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Ministerios</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/stylesheet.css" />
+  <title>Conceptos de Pagos</title>
+</head>
+<body>
+  <div class="container">
+    <input type="radio" name="seleccion" id="agrupacionRadio" />
+    <label for="agrupacionRadio">Agrupación</label>
+    <select name="" id="agrupacionSelect" disabled>
+      <option value="">Seleccione una opción</option>
+      <option value="ley">10.430</option>
+      <option value="autoridad-superior">Autoridad Superior</option>
+      <option value="funcionario">Funcionario</option>
+    </select>
+    
+    <input type="radio" name="seleccion" id="ministeriosRadio" />
+    <label for="ministeriosRadio">Ministerios</label>
+    <h1>Ministerios</h1>
+    <section class="lista-min" id="ministerio-list"></section>
+    <section class="lista" id="lista-conceptos"></section>
+  </div>
 
-      <div class="lista" id="ministerio-list">
-        <!-- Aquí se mostrarán los ministerios -->
-      </div>
-    </div>
-    <!-- Carga de la librería XLSX desde CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.1/dist/xlsx.full.min.js"></script>
-
-    <script src="scripts/mostrarMinisterios.js"></script>
-  </body>
+  <!-- Carga de la librería XLSX desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.1/dist/xlsx.full.min.js"></script>
+  <script src="scripts/mostrarMinisterios.js"></script>
+  <script src="scripts/mostrar.js"></script>
+  <script src="../scripts/mostrarConceptos.js"></script>
+</body>
 </html>

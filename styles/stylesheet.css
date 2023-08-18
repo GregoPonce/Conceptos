@@ -10,18 +10,18 @@ body {
   padding: 20px;
 }
 
-.lista {
-  display: flex;
+.lista-min {
   flex-direction: column;
+  display: none;
 }
 
-a {
+.container div {
   text-decoration: none;
   display: block;
   color: blue;
 }
 
-a:visited{
+a:visited {
   color: blue;
 }
 
