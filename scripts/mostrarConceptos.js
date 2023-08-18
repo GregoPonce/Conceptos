@@ -55,5 +55,5 @@ function cargarConceptos(url) {
 }
 
 // Cambiar la URL de ejemplo por la URL de tu archivo Excel
-const excelURL = "Conceptos.xlsx";
+const excelURL = "Tablas\Conceptos.xlsx";
 cargarConceptos(excelURL);
