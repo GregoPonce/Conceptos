@@ -37,5 +37,5 @@ function loadMinisteriosFromURL(url) {
 }
 
 // Cambiar la URL de ejemplo por la URL de tu archivo Excel
-const excelURL = "../tablas/Conceptos Salariales por Organismo 2022.xls";
+const excelURL = "../tablas/Ministerios.xls";
 loadMinisteriosFromURL(excelURL);
