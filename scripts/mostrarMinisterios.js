@@ -37,5 +37,5 @@ function loadMinisteriosFromURL(url) {
 }
 
 // Cambiar la URL de ejemplo por la URL de tu archivo Excel
-const excelURL = "../informacion/Ministerios.xls";
+const excelURL = "../informacion/Ministerios.xlsx";
 loadMinisteriosFromURL(excelURL);
