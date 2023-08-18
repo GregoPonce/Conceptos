@@ -68,5 +68,5 @@ function cargarConceptos(url, ministerio) {
 }
 
 // Cargar y mostrar conceptos filtrados por el ministerio seleccionado
-const excelURL = "../tablas/Conceptos.xlsx";
+const excelURL = "../informacion/Conceptos.xlsx";
 cargarConceptos(excelURL, ministerioSeleccionado);
