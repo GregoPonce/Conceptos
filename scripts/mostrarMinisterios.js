@@ -9,7 +9,7 @@ function displayMinisterios(ministerios) {
     const ministerioLink = document.createElement("a");
     ministerioLink.classList.add("card");
     ministerioLink.textContent = ministerio;
-    ministerioLink.href = "../pages/alternativa.html"; // Acceder a alternativa.html en la carpeta "pages"
+    ministerioLink.href = `../pages/alternativa.html?ministerio=${encodeURIComponent(ministerio)}`;
     ministerioLink.onclick = function (event) {
       console.log("Hiciste clic en el enlace de", ministerio);
       // Aquí puedes agregar la lógica para mostrar los conceptos del ministerio seleccionado
@@ -37,5 +37,5 @@ function loadMinisteriosFromURL(url) {
 }
 
 // Cambiar la URL de ejemplo por la URL de tu archivo Excel
-const excelURL = "tablas/Conceptos Salariales por Organismo 2022.xls";
+const excelURL = "../tablas/Conceptos Salariales por Organismo 2022.xls";
 loadMinisteriosFromURL(excelURL);
