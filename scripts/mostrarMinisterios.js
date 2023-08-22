@@ -6,7 +6,7 @@ let ministerios = [];
 function displayMinisterios(ministerios) {
   ministerioList.innerHTML = ""; // Limpia la lista antes de mostrar los nuevos ministerios
   ministerios.forEach((ministerio) => {
-    const ministerioLink = document.createElement("button");
+    const ministerioLink = document.createElement("div");
     ministerioLink.classList.add("card");
     ministerioLink.textContent = ministerio;
     ministerioLink.onclick = function (event) {
