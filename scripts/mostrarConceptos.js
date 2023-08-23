@@ -6,7 +6,7 @@ function displayConceptos(conceptos) {
   listaConceptos.innerHTML = "";
   conceptos.forEach((concepto) => {
     const conceptoLink = document.createElement("div");
-    conceptoLink.classList.add("card");
+    conceptoLink.classList.add("card-conceptos");
     conceptoLink.textContent = concepto.Concepto;
     const detalles = document.createElement("div");
     detalles.classList.add("detalles");

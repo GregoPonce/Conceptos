@@ -9,23 +9,20 @@
   <body>
     <div class="container" id="container">
       <div class="filtro">
-        <div>
-          <label for="agrupacionRadio">Agrupación</label>
-          <input type="radio" name="seleccion" id="agrupacionRadio" />
-        </div>
+        <label for="agrupacionRadio">Régimen estatutario</label>
+        <input type="radio" name="seleccion" id="agrupacionRadio" />
+
         <select name="" id="agrupacionSelect" disabled>
           <option value="">Seleccione una opción</option>
           <option value="ley">10.430</option>
-          <option value="autoridad-superior">Autoridad Superior</option>
-          <option value="funcionario">Funcionario</option>
+          <option value="autoridad-superior">Jerarquizado Superior</option>
         </select>
-      </div>
-      <div class="filtro">
+        
         <label for="ministeriosRadio">Ministerios</label>
         <input type="radio" name="seleccion" id="ministeriosRadio" />
       </div>
       <section class="lista" id="ministerio-list"></section>
-      <section class="lista conceptos" id="lista-conceptos"></section>
+      <section class="conceptos" id="lista-conceptos"></section>
       <div class="card error">
         <a href="#container">
           No se encontraron conceptos para el ministerio elegido<br />Regrese al
