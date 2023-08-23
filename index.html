@@ -7,7 +7,7 @@
     <title>Conceptos de Pagos</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="container">
       <div class="filtro">
         <div>
           <label for="agrupacionRadio">Agrupación</label>
@@ -26,12 +26,19 @@
       </div>
       <section class="lista" id="ministerio-list"></section>
       <section class="lista conceptos" id="lista-conceptos"></section>
+      <div class="card error">
+        <a href="#container">
+          No se encontraron conceptos para el ministerio elegido<br />Regrese al
+          Inicio apretando este texto
+        </a>
+      </div>
     </div>
 
     <!-- Carga de la librería XLSX desde CDN -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.1/dist/xlsx.full.min.js"></script>
     <script src="scripts/mostrarMinisterios.js"></script>
     <script src="scripts/mostrar.js"></script>
+    <script src="scripts/mostrarAgrupacion.js"></script>
     <script src="scripts/mostrarConceptos.js"></script>
   </body>
 </html>

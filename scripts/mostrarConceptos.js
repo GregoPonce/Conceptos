@@ -21,16 +21,13 @@ function displayConceptos(conceptos) {
     listaConceptos.appendChild(conceptoLink);
     const elementoDestino = document.getElementById("lista-conceptos");
     elementoDestino.scrollIntoView({
-      behavior: "smooth" // Hace el scroll de manera suave
+      behavior: "smooth", // Hace el scroll de manera suave
     });
   });
 }
 
-const params = new URLSearchParams(window.location.search);
-ministerioSeleccionado = params.get("ministerio");
-
 // Cargar datos de conceptos desde una URL de archivo Excel
-function cargarConceptos(url, ministerio) {
+function cargarConceptos(url, parametro) {
   fetch(url)
     .then((response) => response.arrayBuffer())
     .then((data) => {
@@ -39,8 +36,11 @@ function cargarConceptos(url, ministerio) {
       const sheetData = XLSX.utils.sheet_to_json(
         workbook.Sheets[firstSheetName]
       );
-      conceptos = sheetData
-        .filter((row) => row.Ministerio === ministerio) // Filtrar por el ministerio seleccionado
+      const agrupacionRadio = document.getElementById("agrupacionRadio");
+      const ministeriosRadio = document.getElementById("ministeriosRadio");
+      if(ministeriosRadio.checked){
+        conceptos = sheetData
+        .filter((row) => row.Ministerio === parametro) // Filtrar por el ministerio seleccionado
         .map((row) => ({
           Concepto: row.Concepto,
           Formula: row.Formula,
@@ -48,20 +48,32 @@ function cargarConceptos(url, ministerio) {
           Ley: row.Ley,
           Tablas: row.Tablas,
         }));
+      }
+      else{
+        if(agrupacionRadio.checked){
+          conceptos = sheetData
+          .filter((row) => row.Ley === parametro) // Filtrar por el ministerio seleccionado
+          .map((row) => ({
+            Concepto: row.Concepto,
+            Formula: row.Formula,
+            Ministerio: row.Ministerio,
+            Ley: row.Ley,
+            Tablas: row.Tablas,
+          }));
+        }
+      }
+      const miElemento = document.querySelector(".error");
+      const lista= document.querySelector(".conceptos");
       if (conceptos.length !== 0) {
         displayConceptos(conceptos);
+        lista.style.display="flex";
+        miElemento.style.display = "none";
       } else {
-        const error = document.createElement("div");
-        error.classList.add("card");
-        error.textContent =
-          "No se encontraron conceptos para el ministerio elegido";
-        const linkError = document.createElement("a");
-        linkError.textContent = "Regrese al Inicio apretando este texto";
-        linkError.href = "/";
-        error.appendChild(linkError);
-        listaConceptos.appendChild(error); // Agregar el mensaje de error a la listaConceptos
+        // Modifica el estilo del element
+        lista.style.display="none";
+        miElemento.style.display = "flex";
         listaConceptos.scrollIntoView({
-          behavior: "smooth" // Hace el scroll de manera suave
+          behavior: "smooth", // Hace el scroll de manera suave
         });
       }
     })
